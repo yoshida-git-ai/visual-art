@@ -2,20 +2,20 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stylish VJ / Art Page Demo</title>
-  <!-- CSSリンク -->
+  <title>Visual Art Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CSSを読み込み (index.html と同じフォルダにある styles.css を参照) -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- ナビゲーション -->
+  <!-- ヘッダー (固定ナビゲーション) -->
   <header class="header">
     <div class="nav-container">
-      <a href="#" class="logo">ARTIST LOGO</a>
+      <a href="#" class="logo">ART LOGO</a>
       <nav class="nav-links">
         <a href="#hero">HOME</a>
         <a href="#about">ABOUT</a>
-        <a href="#speakers">SPEAKERS</a>
+        <a href="#gallery">GALLERY</a>
         <a href="#footer">CONTACT</a>
       </nav>
     </div>
@@ -23,48 +23,33 @@
 
   <!-- ヒーローセクション -->
   <section id="hero" class="hero-section">
-    <div class="hero-content fade-in">
-      <h1 class="hero-title">IMMERSIVE EXPERIENCE</h1>
-      <p class="hero-subtitle">A fusion of VJ &amp; art to inspire innovation</p>
+    <div class="hero-content">
+      <h1 class="hero-title">Immersive Visual Art</h1>
+      <p class="hero-subtitle">A New Era of Creativity and Innovation</p>
       <a href="#about" class="hero-button">Learn More</a>
     </div>
   </section>
 
-  <!-- ABOUT セクション -->
+  <!-- About セクション -->
   <section id="about" class="section about-section">
-    <div class="container fade-in">
-      <h2>About the Event</h2>
+    <div class="container">
+      <h2>About</h2>
       <p>
-        Experience groundbreaking art and immersive visuals that push the boundaries
-        of innovation. Our showcase blends technology with creativity to deliver an
-        unforgettable journey for all attendees.
+        このページは最新のビジュアルアートやVJパフォーマンスなどの作品を紹介するデモサイトです。
+        テクノロジーとアートを融合させた独自の世界観を体験してください。
       </p>
     </div>
   </section>
 
-  <!-- スピーカー/アーティスト紹介セクション -->
-  <section id="speakers" class="section speakers-section">
-    <div class="container fade-in">
-      <h2>Featured Artists</h2>
-      <div class="speakers-grid">
-        <!-- スピーカー1 -->
-        <div class="speaker-card">
-          <img src="https://via.placeholder.com/600x400" alt="Speaker 1" />
-          <h3>Artist Name 1</h3>
-          <p>Specializing in experimental VJ performances and digital installations.</p>
-        </div>
-        <!-- スピーカー2 -->
-        <div class="speaker-card">
-          <img src="https://via.placeholder.com/600x400" alt="Speaker 2" />
-          <h3>Artist Name 2</h3>
-          <p>Interactive 3D visuals that captivate audiences worldwide.</p>
-        </div>
-        <!-- スピーカー3 -->
-        <div class="speaker-card">
-          <img src="https://via.placeholder.com/600x400" alt="Speaker 3" />
-          <h3>Artist Name 3</h3>
-          <p>Multi-sensory experiences bridging art and tech in innovative ways.</p>
-        </div>
+  <!-- Gallery セクション -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="https://via.placeholder.com/600x400?text=Artwork+1" alt="Artwork 1" />
+        <img src="https://via.placeholder.com/600x400?text=Artwork+2" alt="Artwork 2" />
+        <img src="https://via.placeholder.com/600x400?text=Artwork+3" alt="Artwork 3" />
+        <img src="https://via.placeholder.com/600x400?text=Artwork+4" alt="Artwork 4" />
       </div>
     </div>
   </section>
@@ -72,12 +57,11 @@
   <!-- フッター -->
   <footer id="footer" class="footer">
     <div class="container">
-      <p>&copy; 2025 Your Artist Name / Brand. All rights reserved.</p>
-      <p class="small-text">Designed with passion. Powered by GitHub Pages.</p>
+      <p>&copy; 2025 Your Artist Name. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- JSファイル -->
+  <!-- JSファイルを読み込み (index.html と同じフォルダにある script.js を参照) -->
   <script src="script.js"></script>
 </body>
 </html>
