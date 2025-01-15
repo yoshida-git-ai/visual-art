@@ -9,13 +9,13 @@
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #000;
+  background-color: #000; 
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* コンテナ共通クラス */
+/* コンテナ共通 */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -59,7 +59,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ff6ad5; /* アクセントカラー */
+  color: #ff6ad5;
 }
 
 /* ================================
@@ -68,14 +68,13 @@ body {
 .hero-section {
   position: relative;
   height: 100vh;
-  overflow: hidden;
+  margin-top: 60px; /* ヘッダー分 */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 60px; /* ヘッダー分 */
-  /* 背景のアニメーションをkeyframesで作成 (後述) */
-  animation: gradientBG 10s ease infinite alternate;
+  /* 固定のグラデーション背景にする */
+  background: linear-gradient(135deg, #ff006a 0%, #00c9ff 100%);
 }
 
 .hero-content {
@@ -126,21 +125,10 @@ body {
   content: "↓ ";
 }
 
-/* アニメーション: バウンス */
 @keyframes bounce {
   0%   { transform: translate(-50%, 0); }
   50%  { transform: translate(-50%, 10px); }
   100% { transform: translate(-50%, 0); }
-}
-
-/* アニメーション: 背景グラデーション */
-@keyframes gradientBG {
-  0% {
-    background: linear-gradient(135deg, #ff006a 0%, #00c9ff 100%);
-  }
-  100% {
-    background: linear-gradient(135deg, #ffde00 0%, #ff006a 100%);
-  }
 }
 
 /* ================================
@@ -151,14 +139,12 @@ body {
   position: relative;
 }
 
-/* タイトルの装飾 */
 .section-title {
   font-size: 2rem;
   margin-bottom: 1rem;
   position: relative;
 }
 
-/* 上下にラインを加えるなど、動きを付ける */
 .section-title::after {
   content: "";
   display: block;
@@ -168,7 +154,6 @@ body {
   margin: 1rem auto 0 auto;
 }
 
-/* テキスト */
 .section-text {
   max-width: 800px;
   margin: 1rem auto;
@@ -206,6 +191,20 @@ body {
 }
 
 /* ================================
+   PINNED SECTION
+=============================== */
+.pinned-section {
+  background-color: #111;
+  text-align: center;
+  color: #fff;
+}
+
+.pinned-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ================================
    FOOTER
 =============================== */
 .footer {
@@ -224,7 +223,7 @@ body {
 =============================== */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* ハンバーガーメニューにする場合はJS追加 */
+    display: none; 
   }
 
   .hero-title {
@@ -235,4 +234,3 @@ body {
     font-size: 1rem;
   }
 }
-
