@@ -1,1 +1,83 @@
-html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stylish VJ / Art Page Demo</title>
+  <!-- CSSリンク -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ナビゲーション -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="#" class="logo">ARTIST LOGO</a>
+      <nav class="nav-links">
+        <a href="#hero">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#speakers">SPEAKERS</a>
+        <a href="#footer">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content fade-in">
+      <h1 class="hero-title">IMMERSIVE EXPERIENCE</h1>
+      <p class="hero-subtitle">A fusion of VJ &amp; art to inspire innovation</p>
+      <a href="#about" class="hero-button">Learn More</a>
+    </div>
+  </section>
+
+  <!-- ABOUT セクション -->
+  <section id="about" class="section about-section">
+    <div class="container fade-in">
+      <h2>About the Event</h2>
+      <p>
+        Experience groundbreaking art and immersive visuals that push the boundaries
+        of innovation. Our showcase blends technology with creativity to deliver an
+        unforgettable journey for all attendees.
+      </p>
+    </div>
+  </section>
+
+  <!-- スピーカー/アーティスト紹介セクション -->
+  <section id="speakers" class="section speakers-section">
+    <div class="container fade-in">
+      <h2>Featured Artists</h2>
+      <div class="speakers-grid">
+        <!-- スピーカー1 -->
+        <div class="speaker-card">
+          <img src="https://via.placeholder.com/600x400" alt="Speaker 1" />
+          <h3>Artist Name 1</h3>
+          <p>Specializing in experimental VJ performances and digital installations.</p>
+        </div>
+        <!-- スピーカー2 -->
+        <div class="speaker-card">
+          <img src="https://via.placeholder.com/600x400" alt="Speaker 2" />
+          <h3>Artist Name 2</h3>
+          <p>Interactive 3D visuals that captivate audiences worldwide.</p>
+        </div>
+        <!-- スピーカー3 -->
+        <div class="speaker-card">
+          <img src="https://via.placeholder.com/600x400" alt="Speaker 3" />
+          <h3>Artist Name 3</h3>
+          <p>Multi-sensory experiences bridging art and tech in innovative ways.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <p>&copy; 2025 Your Artist Name / Brand. All rights reserved.</p>
+      <p class="small-text">Designed with passion. Powered by GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <!-- JSファイル -->
+  <script src="script.js"></script>
+</body>
+</html>
