@@ -1,4 +1,6 @@
-/* ===== Reset & Basic Styles ===== */
+/* ===============================
+   RESET & BASIC STYLES
+=============================== */
 * {
   margin: 0;
   padding: 0;
@@ -7,10 +9,10 @@
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  color: #fff;
-  background-color: #000; /* 背景色は黒で引き締め感 */
+  background-color: #000; /* 背景は黒 */
+  color: #fff;            /* 文字色は白 */
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden;     /* 横スクロール防止 */
 }
 
 /* コンテナ共通クラス */
@@ -21,12 +23,14 @@ body {
   padding: 2rem 0;
 }
 
-/* ===== ヘッダー & ナビゲーション ===== */
+/* ===============================
+   HEADER & NAV
+=============================== */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
 }
 
@@ -41,8 +45,8 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
   text-decoration: none;
+  color: #fff;
 }
 
 .nav-links a {
@@ -53,10 +57,12 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ff006a; /* ピンク系のアクセントカラー */
+  color: #ff006a; /* アクセントカラー(ピンク) */
 }
 
-/* ===== ヒーローセクション ===== */
+/* ===============================
+   HERO SECTION
+=============================== */
 .hero-section {
   height: 100vh;
   background: url("https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Hero+Background") center/cover no-repeat;
@@ -66,7 +72,7 @@ body {
   position: relative;
 }
 
-/* ダークオーバーレイをかける */
+/* 背景の上に半透明のレイヤーをかけてコントラストを高める */
 .hero-section::after {
   content: "";
   position: absolute;
@@ -108,13 +114,17 @@ body {
   background-color: #ff337f;
 }
 
-/* ===== セクション共通 ===== */
+/* ===============================
+   SECTION COMMON STYLES
+=============================== */
 .section {
   padding: 5rem 0;
   text-align: center;
+  /* ヘッダーの高さ分、上部が隠れないようにマージンを確保 */
+  margin-top: 60px;
 }
 
-/* ===== Aboutセクション ===== */
+/* About セクション */
 .about-section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -123,40 +133,32 @@ body {
 .about-section p {
   max-width: 800px;
   margin: 0.5rem auto;
-  line-height: 1.8;
 }
 
-/* ===== スピーカーセクション ===== */
-.speakers-grid {
+/* ===============================
+   GALLERY SECTION
+=============================== */
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
   margin-top: 2rem;
 }
 
-.speaker-card {
-  background-color: #111;
-  padding: 1.5rem;
-  border-radius: 8px;
+.gallery-grid img {
+  width: 100%;
+  border: 2px solid #222;
+  border-radius: 4px;
   transition: transform 0.3s ease;
 }
 
-.speaker-card:hover {
-  transform: translateY(-5px);
+.gallery-grid img:hover {
+  transform: scale(1.03);
 }
 
-.speaker-card img {
-  width: 100%;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-.speaker-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-/* ===== フッター ===== */
+/* ===============================
+   FOOTER
+=============================== */
 .footer {
   background-color: #111;
   padding: 2rem 0;
@@ -165,41 +167,22 @@ body {
 
 .footer p {
   margin: 0.5rem 0;
-}
-
-.small-text {
-  font-size: 0.8rem;
   color: #aaa;
 }
 
-/* ===== アニメーション ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-/* .visible クラスが付与されるとフェードイン */
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== レスポンシブ対応 ===== */
+/* ===============================
+   RESPONSIVE
+=============================== */
 @media (max-width: 768px) {
+  .nav-links {
+    display: none; /* 必要に応じてハンバーガーメニューへ */
+  }
+
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .hero-subtitle {
     font-size: 1rem;
-  }
-
-  .nav-links {
-    display: none; /* 必要に応じてハンバーガーメニューへ切り替えなど */
-  }
-
-  .hero-button {
-    padding: 0.5rem 1rem;
   }
 }
