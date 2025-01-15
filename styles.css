@@ -1,5 +1,5 @@
-/* ===============================
-   RESET & BASIC STYLES
+/* ================================
+   RESET & BASIC
 =============================== */
 * {
   margin: 0;
@@ -9,10 +9,10 @@
 
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #000; /* 背景は黒 */
-  color: #fff;            /* 文字色は白 */
+  background-color: #000;
+  color: #fff;
   line-height: 1.6;
-  overflow-x: hidden;     /* 横スクロール防止 */
+  overflow-x: hidden;
 }
 
 /* コンテナ共通クラス */
@@ -23,27 +23,29 @@ body {
   padding: 2rem 0;
 }
 
-/* ===============================
+/* ================================
    HEADER & NAV
 =============================== */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
+  height: 60px;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
+  backdrop-filter: blur(6px);
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 100%;
   padding: 0 1rem;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
@@ -57,37 +59,29 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ff006a; /* アクセントカラー(ピンク) */
+  color: #ff6ad5; /* アクセントカラー */
 }
 
-/* ===============================
+/* ================================
    HERO SECTION
 =============================== */
 .hero-section {
+  position: relative;
   height: 100vh;
-  background: url("https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Hero+Background") center/cover no-repeat;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-}
-
-/* 背景の上に半透明のレイヤーをかけてコントラストを高める */
-.hero-section::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+  text-align: center;
+  margin-top: 60px; /* ヘッダー分 */
+  /* 背景のアニメーションをkeyframesで作成 (後述) */
+  animation: gradientBG 10s ease infinite alternate;
 }
 
 .hero-content {
-  position: relative;
   z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
   padding: 1rem;
+  max-width: 800px;
 }
 
 .hero-title {
@@ -103,79 +97,134 @@ body {
 .hero-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #ff006a;
+  background-color: #ff6ad5;
   color: #fff;
   text-decoration: none;
-  border-radius: 2px;
-  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-button:hover {
-  background-color: #ff337f;
+  background-color: #ff85df;
+  transform: scale(1.05);
 }
 
-/* ===============================
-   SECTION COMMON STYLES
+/* スクロールを促すUI */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #fff;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator span::before {
+  content: "↓ ";
+}
+
+/* アニメーション: バウンス */
+@keyframes bounce {
+  0%   { transform: translate(-50%, 0); }
+  50%  { transform: translate(-50%, 10px); }
+  100% { transform: translate(-50%, 0); }
+}
+
+/* アニメーション: 背景グラデーション */
+@keyframes gradientBG {
+  0% {
+    background: linear-gradient(135deg, #ff006a 0%, #00c9ff 100%);
+  }
+  100% {
+    background: linear-gradient(135deg, #ffde00 0%, #ff006a 100%);
+  }
+}
+
+/* ================================
+   SECTION COMMON
 =============================== */
 .section {
   padding: 5rem 0;
-  text-align: center;
-  /* ヘッダーの高さ分、上部が隠れないようにマージンを確保 */
-  margin-top: 60px;
+  position: relative;
 }
 
-/* About セクション */
-.about-section h2 {
+/* タイトルの装飾 */
+.section-title {
   font-size: 2rem;
   margin-bottom: 1rem;
+  position: relative;
 }
 
-.about-section p {
+/* 上下にラインを加えるなど、動きを付ける */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #ff6ad5;
+  margin: 1rem auto 0 auto;
+}
+
+/* テキスト */
+.section-text {
   max-width: 800px;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
+  line-height: 1.8;
 }
 
-/* ===============================
+/* ================================
    GALLERY SECTION
 =============================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
 }
 
-.gallery-grid img {
+.gallery-item {
+  overflow: hidden;
+  border-radius: 6px;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.gallery-item img {
+  display: block;
   width: 100%;
-  border: 2px solid #222;
-  border-radius: 4px;
+  height: auto;
+  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.03);
+.gallery-item img:hover {
+  transform: scale(1.08);
 }
 
-/* ===============================
+/* ================================
    FOOTER
 =============================== */
 .footer {
   background-color: #111;
-  padding: 2rem 0;
   text-align: center;
+  padding: 2rem 0;
 }
 
 .footer p {
   margin: 0.5rem 0;
-  color: #aaa;
+  color: #ccc;
 }
 
-/* ===============================
+/* ================================
    RESPONSIVE
 =============================== */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* 必要に応じてハンバーガーメニューへ */
+    display: none; /* ハンバーガーメニューにする場合はJS追加 */
   }
 
   .hero-title {
