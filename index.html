@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Colorful Scroll Motion Demo</title>
+  <title>Colorful Scroll Motion + Images Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
@@ -15,20 +15,21 @@
   <!-- ヘッダー -->
   <header class="header">
     <div class="nav-container">
-      <a href="#" class="logo">ART KRHT</a>
+      <a href="#" class="logo">ART LOGO</a>
       <nav class="nav-links">
         <a href="#hero">HOME</a>
         <a href="#about">ABOUT</a>
+        <a href="#showcase">SHOWCASE</a>
         <a href="#gallery">GALLERY</a>
         <a href="#footer">CONTACT</a>
       </nav>
     </div>
   </header>
 
-  <!-- ヒーローセクション -->
+  <!-- ヒーローセクション (固定グラデーション背景) -->
   <section id="hero" class="hero-section">
     <div class="hero-content">
-      <h1 class="hero-title"> VISUAL WORLD</h1>
+      <h1 class="hero-title">VIBRANT VISUAL WORLD</h1>
       <p class="hero-subtitle">An Explosion of Colors and Motion</p>
       <a href="#about" class="hero-button">Explore</a>
     </div>
@@ -49,13 +50,40 @@
     </div>
   </section>
 
+  <!-- SHOWCASEセクション: 置きたい画像を自由に配置 -->
+  <section id="showcase" class="section showcase-section">
+    <div class="container">
+      <h2 class="section-title">My Artwork Showcase</h2>
+      <div class="showcase-grid">
+        <div class="showcase-item">
+          <!-- 実際の画像 (例: my-art1.jpg) を参照 -->
+          <img src="images/my-art1.jpg" alt="My Art 1" />
+          <p class="caption">My Art #1</p>
+        </div>
+        <div class="showcase-item">
+          <img src="images/my-art2.jpg" alt="My Art 2" />
+          <p class="caption">My Art #2</p>
+        </div>
+        <div class="showcase-item">
+          <img src="images/my-art3.jpg" alt="My Art 3" />
+          <p class="caption">My Art #3</p>
+        </div>
+        <div class="showcase-item">
+          <img src="images/my-art4.jpg" alt="My Art 4" />
+          <p class="caption">My Art #4</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- GALLERYセクション -->
   <section id="gallery" class="section gallery-section">
     <div class="container">
       <h2 class="section-title">Gallery</h2>
       <div class="gallery-grid">
+        <!-- ダミー画像を使った例 (実際には差し替え推奨) -->
         <div class="gallery-item">
-          <img src="https://raw.githubusercontent.com/yoshida-git-ai/visual-art/refs/heads/main/liquify-tool-after.jpg/600x400?text=Art+1" alt="Art 1" />
+          <img src="https://via.placeholder.com/600x400?text=Art+1" alt="Art 1" />
         </div>
         <div class="gallery-item">
           <img src="https://via.placeholder.com/600x400?text=Art+2" alt="Art 2" />
@@ -70,11 +98,14 @@
     </div>
   </section>
 
-  <!-- ピン留めセクション (オプション)-->
+  <!-- カラフルなピン留めセクション (オプション演出) -->
   <section id="pinned" class="section pinned-section">
     <div class="pinned-content">
-      <h2>Pin Section</h2>
-      <p>Scroll down to see me pinned for a moment.</p>
+      <h2>Colorful Section</h2>
+      <p>
+        Scroll down to see the background shift and pinned effect in action. 
+        Add more text or visuals here to create an immersive experience.
+      </p>
     </div>
   </section>
 
