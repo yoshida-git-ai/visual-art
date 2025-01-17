@@ -1,273 +1,115 @@
-/* ================================
-   RESET & BASIC
-=============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Colorful Scroll Motion + Images Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- GSAP本体 & ScrollTrigger（CDN）-->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
 
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #000; 
-  color: #fff;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+  <!-- ★ カラーアニメーションバー (左固定) ★ -->
+  <div class="colorful-bar"></div>
 
-/* コンテナ共通 */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="#" class="logo">ART Experience</a>
+      <nav class="nav-links">
+        <a href="#hero">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#showcase">SHOWCASE</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#footer">CONTACT</a>
+      </nav>
+    </div>
+  </header>
 
-/* ================================
-   HEADER & NAV
-=============================== */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  backdrop-filter: blur(6px);
-}
+  <!-- ヒーローセクション (固定グラデーション背景) -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">VIBRANT VISUAL WORLD</h1>
+      <p class="hero-subtitle">An Explosion of Colors and Motion</p>
+      <a href="#about" class="hero-button">Explore</a>
+    </div>
+    <!-- スクロールを促すアイコン -->
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+    </div>
+  </section>
 
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  padding: 0 1rem;
-}
+  <!-- ABOUTセクション -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title">About This Experience</h2>
+      <p class="section-text">
+        Dive into a world of immersive art, where technology meets creativity.
+        Experience live VJ performances, interactive installations, and more.
+      </p>
+    </div>
+  </section>
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-}
+  <!-- SHOWCASEセクション: 置きたい画像を自由に配置 -->
+  <section id="showcase" class="section showcase-section">
+    <div class="container">
+      <h2 class="section-title">My Artwork Showcase</h2>
+      <div class="showcase-grid">
+        <div class="showcase-item">
+          <img src="images/liquify-tool-after.jpg" alt="My Art 1" />
+          <p class="caption">My Art #1</p>
+        </div>
+        <div class="showcase-item">
+          <img src="images/5.5.jpg" alt="My Art 2" />
+          <p class="caption">My Art #2</p>
+        </div>
+        <div class="showcase-item">
+          <img src="images/image-3.jpg" alt="My Art 3" />
+          <p class="caption">My Art #3</p>
+        </div>
+        <div class="showcase-item">
+          <img src="images/icon7.jpg" alt="My Art 4" />
+          <p class="caption">My Art #4</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  transition: color 0.3s ease;
-}
+  <!-- GALLERYセクション -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid">
+        <!-- ダミー画像を使った例 (実際には差し替え推奨) -->
+        <div class="gallery-item">
+          <img src="images/r4.png/600x400?text=Art+1" alt="Art 1" />
+        </div>
+        <div class="gallery-item">
+          <img src="37270005.jpg/600x400?text=Art+2" alt="Art 2" />
+        </div>
+        <div class="gallery-item">
+          <img src="images%20(1).jpg/600x400?text=Art+3" alt="Art 3" />
+        </div>
+        <div class="gallery-item">
+          <img src="istockphoto-586699790-1024x1024b.png/600x400?text=Art+4" alt="Art 4" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-.nav-links a:hover {
-  color: #ff6ad5;
-}
+  <!-- ※旧「Colorful Section」の代わりに左バーでアニメするため、ここは削除済み ※ -->
 
-/* ================================
-   LEFT COLORFUL BAR
-=============================== */
-.colorful-bar {
-  /* 初期状態は画面外において、GSAPでピン留め（位置固定） */
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 10px;   /* 幅はお好みで */
-  height: 100%;
-  background: linear-gradient(180deg, #ff006a 0%, #ffde00 100%);
-  z-index: 900;  /* ヘッダーなどより下/上、必要に合わせて調整 */
-}
+  <!-- フッター -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <p>&copy; 2025 Your Artist Name. All rights reserved.</p>
+    </div>
+  </footer>
 
-/* ================================
-   HERO SECTION
-=============================== */
-.hero-section {
-  position: relative;
-  height: 100vh;
-  margin-top: 60px; /* ヘッダー分 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, #ff006a 0%, #00c9ff 100%);
-}
-
-.hero-content {
-  z-index: 2;
-  padding: 1rem;
-  max-width: 800px;
-}
-
-.hero-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.hero-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #ff6ad5;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.hero-button:hover {
-  background-color: #ff85df;
-  transform: scale(1.05);
-}
-
-/* スクロールを促すUI */
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  color: #fff;
-  opacity: 0.7;
-  animation: bounce 2s infinite;
-}
-
-.scroll-indicator span::before {
-  content: "↓ ";
-}
-
-@keyframes bounce {
-  0%   { transform: translate(-50%, 0); }
-  50%  { transform: translate(-50%, 10px); }
-  100% { transform: translate(-50%, 0); }
-}
-
-/* ================================
-   SECTION COMMON
-=============================== */
-.section {
-  padding: 5rem 0;
-  position: relative;
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-.section-title::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: #ff6ad5;
-  margin: 1rem auto 0 auto;
-}
-
-.section-text {
-  max-width: 800px;
-  margin: 1rem auto;
-  line-height: 1.8;
-}
-
-/* ================================
-   SHOWCASE SECTION
-=============================== */
-.showcase-section {
-  background-color: #111;
-}
-
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.showcase-item {
-  text-align: center;
-  transform: translateY(40px);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.showcase-item img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.showcase-item img:hover {
-  transform: scale(1.05);
-}
-
-.caption {
-  font-size: 0.9rem;
-  color: #ccc;
-  margin-top: 0.25rem;
-}
-
-/* ================================
-   GALLERY SECTION
-=============================== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.gallery-item {
-  overflow: hidden;
-  border-radius: 6px;
-  transform: scale(0.9);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.gallery-item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item img:hover {
-  transform: scale(1.08);
-}
-
-/* ================================
-   FOOTER
-=============================== */
-.footer {
-  background-color: #111;
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.footer p {
-  margin: 0.5rem 0;
-  color: #ccc;
-}
-
-/* ================================
-   RESPONSIVE
-=============================== */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none; 
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-}
+  <!-- スクリプト -->
+  <script src="script.js"></script>
+</body>
+</html>
