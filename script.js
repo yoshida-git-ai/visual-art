@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // -----------------------------
-  // Heroセクション：ページ読み込み時にフェードイン
+  // ヒーローセクション：ページ読み込み時にフェードイン
   // -----------------------------
   gsap.from(".hero-title", {
     y: 30,
@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
-  // Aboutセクション：スクロール時フェードイン
+  // ABOUTセクション：スクロール時フェードイン
   // -----------------------------
   gsap.from(".about-section .section-title", {
     scrollTrigger: {
@@ -88,127 +88,52 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
-  // カラフルな背景変化: About→Showcase→Gallery→Pinnedセクションで変化
+  // 左側のカラフルバーを、ABOUT開始～フッター直前までピン留め
   // -----------------------------
-  // 1) Aboutセクション通過時にヒーロー背景を変化
   ScrollTrigger.create({
-    trigger: ".about-section",
-    start: "top 50%",
-    onEnter: () => {
-      gsap.to(".hero-section", {
-        background: "linear-gradient(135deg, #ffde00 0%, #ff006a 100%)",
-        duration: 1,
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(".hero-section", {
-        background: "linear-gradient(135deg, #ff006a 0%, #00c9ff 100%)",
-        duration: 1,
-      });
-    },
-  });
-
-  // 2) Showcaseセクションの途中でさらに別の背景へ
-  ScrollTrigger.create({
-    trigger: ".showcase-section",
-    start: "top 50%",
-    onEnter: () => {
-      gsap.to(".hero-section", {
-        background: "linear-gradient(135deg, #00ff88 0%, #ff006a 100%)",
-        duration: 1,
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(".hero-section", {
-        background: "linear-gradient(135deg, #ffde00 0%, #ff006a 100%)",
-        duration: 1,
-      });
-    },
-  });
-
-  // 3) Galleryセクションでさらに変化 (例)
-  ScrollTrigger.create({
-    trigger: ".gallery-section",
-    start: "top 50%",
-    onEnter: () => {
-      gsap.to(".hero-section", {
-        background: "linear-gradient(135deg, #ff6ad5 0%, #ffde00 100%)",
-        duration: 1,
-      });
-    },
-    onLeaveBack: () => {
-      gsap.to(".hero-section", {
-        background: "linear-gradient(135deg, #00ff88 0%, #ff006a 100%)",
-        duration: 1,
-      });
-    },
+    trigger: "#about",       // ここから
+    start: "top top",
+    endTrigger: "#footer",   // ここまでの範囲で
+    end: "top bottom",
+    pin: ".colorful-bar",    // この要素を固定
+    pinSpacing: false,       // コンテンツの高さをそのままに
   });
 
   // -----------------------------
-  // ピン留めセクション
+  // 左側カラフルバーにアニメーション（色を変化させる例）
   // -----------------------------
+  // スクロール区間に応じてグラデーションを変化させる
   ScrollTrigger.create({
-    trigger: ".pinned-section",
+    trigger: "#showcase",
     start: "top 80%",
-    end: "bottom top",
-    pin: true,         // セクションをピン留め
-    pinSpacing: true,  
-    markers: false,    
-  });
-
-  // Pinnedセクション内の要素を順番に表示
-  gsap.from(".pinned-content h2", {
-    scrollTrigger: {
-      trigger: ".pinned-section",
-      start: "top 90%",
+    onEnter: () => {
+      gsap.to(".colorful-bar", {
+        background: "linear-gradient(180deg, #00ff88 0%, #ff006a 100%)",
+        duration: 1
+      });
     },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
+    onLeaveBack: () => {
+      gsap.to(".colorful-bar", {
+        background: "linear-gradient(180deg, #ff006a 0%, #ffde00 100%)",
+        duration: 1
+      });
+    }
   });
-  gsap.from(".pinned-content p", {
-    scrollTrigger: {
-      trigger: ".pinned-section",
-      start: "top 90%",
+
+  ScrollTrigger.create({
+    trigger: "#gallery",
+    start: "top 80%",
+    onEnter: () => {
+      gsap.to(".colorful-bar", {
+        background: "linear-gradient(180deg, #ff6ad5 0%, #ffde00 100%)",
+        duration: 1
+      });
     },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    delay: 0.3,
-    ease: "power2.out",
+    onLeaveBack: () => {
+      gsap.to(".colorful-bar", {
+        background: "linear-gradient(180deg, #00ff88 0%, #ff006a 100%)",
+        duration: 1
+      });
+    }
   });
-
-  // -----------------------------
-  // おまけ: 画面全体に浮遊する要素をランダム生成 (カラフルな円など)
-  // -----------------------------
-  for (let i = 0; i < 15; i++) {
-    createFloatingShape();
-  }
-
-  function createFloatingShape() {
-    const shape = document.createElement("div");
-    shape.classList.add("floating-shape");
-    document.body.appendChild(shape);
-    
-    // ランダムなサイズ・色・位置
-    const size = Math.random() * 50 + 50; // 50px～100px
-    const colorList = ["#ff006a", "#00c9ff", "#ffde00", "#ff6ad5", "#00ff88"];
-    const color = colorList[Math.floor(Math.random() * colorList.length)];
-    shape.style.width = `${size}px`;
-    shape.style.height = `${size}px`;
-    shape.style.backgroundColor = color;
-    shape.style.left = `${Math.random() * 100}vw`;
-    shape.style.top = `${Math.random() * 100}vh`;
-
-    // ランダムに浮遊アニメ (y軸移動)
-    const duration = Math.random() * 4 + 2; // 2～6秒
-    gsap.to(shape, {
-      y: -200,
-      repeat: -1,
-      yoyo: true,
-      duration: duration,
-      ease: "sine.inOut",
-    });
-  }
 });
