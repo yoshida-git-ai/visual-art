@@ -63,6 +63,20 @@ body {
 }
 
 /* ================================
+   LEFT COLORFUL BAR
+=============================== */
+.colorful-bar {
+  /* 初期状態は画面外において、GSAPでピン留め（位置固定） */
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 10px;   /* 幅はお好みで */
+  height: 100%;
+  background: linear-gradient(180deg, #ff006a 0%, #ffde00 100%);
+  z-index: 900;  /* ヘッダーなどより下/上、必要に合わせて調整 */
+}
+
+/* ================================
    HERO SECTION
 =============================== */
 .hero-section {
@@ -73,7 +87,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* 固定のグラデーション背景にする */
   background: linear-gradient(135deg, #ff006a 0%, #00c9ff 100%);
 }
 
@@ -164,7 +177,7 @@ body {
    SHOWCASE SECTION
 =============================== */
 .showcase-section {
-  background-color: #111; /* 黒より少し明るめの背景 */
+  background-color: #111;
 }
 
 .showcase-grid {
@@ -226,20 +239,6 @@ body {
 
 .gallery-item img:hover {
   transform: scale(1.08);
-}
-
-/* ================================
-   PINNED SECTION
-=============================== */
-.pinned-section {
-  background-color: #111;
-  text-align: center;
-  color: #fff;
-}
-
-.pinned-content {
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 /* ================================
