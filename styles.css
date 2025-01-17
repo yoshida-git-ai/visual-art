@@ -161,6 +161,44 @@ body {
 }
 
 /* ================================
+   SHOWCASE SECTION
+=============================== */
+.showcase-section {
+  background-color: #111; /* 黒より少し明るめの背景 */
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.showcase-item {
+  text-align: center;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.showcase-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.showcase-item img:hover {
+  transform: scale(1.05);
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 0.25rem;
+}
+
+/* ================================
    GALLERY SECTION
 =============================== */
 .gallery-grid {
