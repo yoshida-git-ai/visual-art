@@ -87,7 +87,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #ff006a 0%, #00c9ff 100%);
 }
 
 .hero-content {
@@ -121,6 +120,37 @@ body {
   transform: scale(1.05);
 }
 
+/* グラデーションをゆっくり変化させる */
+@keyframes gradientBg {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-animation {
+  background-size: 200% 200%;
+  animation: gradientBg 10s ease infinite;
+}
+
+/* ゆっくり上下に漂うアニメーション */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* ゆっくり回転するアニメーション */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
 /* スクロールを促すUI */
 .scroll-indicator {
   position: absolute;
@@ -131,17 +161,10 @@ body {
   font-size: 0.8rem;
   color: #fff;
   opacity: 0.7;
-  animation: bounce 2s infinite;
 }
 
 .scroll-indicator span::before {
   content: "↓ ";
-}
-
-@keyframes bounce {
-  0%   { transform: translate(-50%, 0); }
-  50%  { transform: translate(-50%, 10px); }
-  100% { transform: translate(-50%, 0); }
 }
 
 /* ================================
@@ -239,6 +262,13 @@ body {
 
 .gallery-item img:hover {
   transform: scale(1.08);
+}
+
+/* ================================
+   SUBSCRIBE SECTION
+=============================== */
+.subscribe-section input {
+  min-width: 220px;
 }
 
 /* ================================

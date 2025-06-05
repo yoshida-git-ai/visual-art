@@ -52,6 +52,24 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
+  // Featuresセクション：カードをフェードイン
+  // -----------------------------
+  const featureCards = document.querySelectorAll("#features .group");
+  featureCards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: "#features",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.2,
+      ease: "power2.out",
+    });
+  });
+
+  // -----------------------------
   // Showcaseセクション：画像アイテムを順番にフェードアップ
   // -----------------------------
   const showcaseItems = document.querySelectorAll(".showcase-item");
@@ -83,6 +101,23 @@ window.addEventListener("DOMContentLoaded", () => {
       scale: 1,
       duration: 1,
       delay: i * 0.1,
+      ease: "power2.out",
+    });
+  });
+
+  // -----------------------------
+  // Subscribeセクション：フェードイン
+  // -----------------------------
+  gsap.utils.toArray("#subscribe .fade-item").forEach((el, i) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: "#subscribe",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.2,
       ease: "power2.out",
     });
   });
