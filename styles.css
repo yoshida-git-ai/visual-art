@@ -87,7 +87,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, #ff006a 0%, #00c9ff 100%);
 }
 
 .hero-content {
@@ -121,6 +120,17 @@ body {
   transform: scale(1.05);
 }
 
+/* グラデーションをゆっくり変化させる */
+@keyframes gradientBg {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-animation {
+  background-size: 200% 200%;
+  animation: gradientBg 10s ease infinite;
+}
+
 /* スクロールを促すUI */
 .scroll-indicator {
   position: absolute;
@@ -131,17 +141,10 @@ body {
   font-size: 0.8rem;
   color: #fff;
   opacity: 0.7;
-  animation: bounce 2s infinite;
 }
 
 .scroll-indicator span::before {
   content: "↓ ";
-}
-
-@keyframes bounce {
-  0%   { transform: translate(-50%, 0); }
-  50%  { transform: translate(-50%, 10px); }
-  100% { transform: translate(-50%, 0); }
 }
 
 /* ================================
