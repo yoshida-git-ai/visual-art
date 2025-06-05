@@ -26,6 +26,21 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
+  // Parallaxセクション：テキストをフェードイン
+  // -----------------------------
+  gsap.from("#parallax h2, #parallax p", {
+    scrollTrigger: {
+      trigger: "#parallax",
+      start: "top 80%",
+    },
+    y: 30,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    stagger: 0.2,
+  });
+
+  // -----------------------------
   // ABOUTセクション：スクロール時フェードイン
   // -----------------------------
   gsap.from(".about-section .section-title", {
@@ -49,6 +64,42 @@ window.addEventListener("DOMContentLoaded", () => {
     duration: 1,
     delay: 0.3,
     ease: "power2.out",
+  });
+
+  // -----------------------------
+  // Spotlightセクション：カードをフェードイン
+  // -----------------------------
+  const spotlightCards = document.querySelectorAll("#spotlight .spotlight-card");
+  spotlightCards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: "#spotlight",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.2,
+      ease: "power2.out",
+    });
+  });
+
+  // -----------------------------
+  // Featuresセクション：カードをフェードイン
+  // -----------------------------
+  const featureCards = document.querySelectorAll("#features .group");
+  featureCards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: "#features",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.2,
+      ease: "power2.out",
+    });
   });
 
   // -----------------------------
@@ -83,6 +134,23 @@ window.addEventListener("DOMContentLoaded", () => {
       scale: 1,
       duration: 1,
       delay: i * 0.1,
+      ease: "power2.out",
+    });
+  });
+
+  // -----------------------------
+  // Subscribeセクション：フェードイン
+  // -----------------------------
+  gsap.utils.toArray("#subscribe .fade-item").forEach((el, i) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: "#subscribe",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.2,
       ease: "power2.out",
     });
   });
