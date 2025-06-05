@@ -52,6 +52,24 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   // -----------------------------
+  // Spotlightセクション：カードをフェードイン
+  // -----------------------------
+  const spotlightCards = document.querySelectorAll("#spotlight .spotlight-card");
+  spotlightCards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: "#spotlight",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      delay: i * 0.2,
+      ease: "power2.out",
+    });
+  });
+
+  // -----------------------------
   // Featuresセクション：カードをフェードイン
   // -----------------------------
   const featureCards = document.querySelectorAll("#features .group");

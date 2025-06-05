@@ -151,6 +151,16 @@ body {
   animation: spinSlow 20s linear infinite;
 }
 
+/* 色相を回転させてカラフルに変化 */
+@keyframes hueRotate {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+.hue-rotate-slow {
+  animation: hueRotate 8s linear infinite;
+}
+
 /* スクロールを促すUI */
 .scroll-indicator {
   position: absolute;
